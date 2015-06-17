@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing My Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_posts.each do |my_post| %>
+      <tr>
+        <td><%= my_post.post %></td>
+        <td><%= my_post.comment %></td>
+        <td><%= link_to 'Show', my_post %></td>
+        <td><%= link_to 'Edit', edit_my_post_path(my_post) %></td>
+        <td><%= link_to 'Destroy', my_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New My post', new_my_post_path %>
